@@ -10,6 +10,8 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/fatih/color"
 )
 
 func main() {
@@ -19,12 +21,14 @@ func main() {
 	target := rand.Intn(100) + 1
 	fmt.Println("I've chosen a random number between 1 and 100.")
 	fmt.Println("Can you gues it?")
+	color.Cyan("Prints text in cyan.")
 	// fmt.Println(target)
 
 	reader := bufio.NewReader(os.Stdin)
 
 	success := false
 	for guesses := 0; guesses < 10; guesses++ {
+		color.Green("You have", 10-guesses, "guesses left.\n")
 		fmt.Println("You have", 10-guesses, "guesses left.")
 
 		fmt.Print("Make a guess: ")
